@@ -1,0 +1,24 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Forgot Password page </title>
+    <link rel="stylesheet" href="forgotpwd.component.css">
+</head>
+
+<body>
+    <div class="formbox">
+        <form class="forgot-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+            <h2>Forgot your password?</h2>
+            <p>Enter your email address and we will send you a password reset email.</p>
+            <input name=email type="email" placeholder="Email" [(ngModel)]="email" required>
+            <button type="submit">Submit</button>
+            <p class="register-link">Don't have an account? <a href="/register">Sign up</a></p>
+            <p class="verification-message" *ngIf="verificationMessage">Check your email to change your password</p>
+            <p *ngIf="existError" class="error-message" [innerHTML]="errorMessage"></p>
+        </form>
+    </div>
+</body>
+
+</html>

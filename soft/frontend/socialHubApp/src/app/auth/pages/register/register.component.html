@@ -1,0 +1,26 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Register page </title>
+  <link rel="stylesheet" href="register.component.css">
+</head>
+
+<body>
+  <div class="formbox">
+    <form class="register-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <h2>Sign up</h2>
+      <input name=fullname type="text" placeholder="Fullname" [(ngModel)]="userdata.fullname" required>
+      <input name=username type="text" placeholder="Username" [(ngModel)]="userdata.username" required>
+      <input name=email type="email" placeholder="Email" [(ngModel)]="userdata.email" required>
+      <input name=password type="password" placeholder="Password" [(ngModel)]="userdata.password" required>
+      <button type="submit">Submit</button>
+      <p class="login-link">Already have an account? <a href="/login">Sign in</a></p>
+      <p class="verification-message" *ngIf="verificationMessage">Check your email to verify your account</p>
+      <p class="error-message" *ngIf="existError" [innerHTML]="errorMessage"></p>
+    </form>
+  </div>
+</body>
+
+</html>

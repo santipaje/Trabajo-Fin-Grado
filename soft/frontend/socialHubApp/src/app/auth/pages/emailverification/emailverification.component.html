@@ -1,0 +1,27 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification page</title>
+    <link rel="stylesheet" href="emailverification.component.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-box">
+            <h2>Email Verification</h2>
+            <p *ngIf="loading">Loading...</p>
+            <p *ngIf="success" [innerHTML]="successMessage"></p>
+            <p *ngIf="errorr" [innerHTML]="errorMessage"></p>
+        </div>
+        <div class="result-box">
+            <img *ngIf="success" src="/assets/resources/emailv.png" alt="">
+            <img *ngIf="errorr" src="/assets/resources/emailerr.png" alt="">
+            <p *ngIf="success" class="success-text">Email Verification Successful</p>
+            <p *ngIf="errorr" class="error-text">Email Verification Failed</p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .text-box {
+    flex: 0.7;
+  }
+  
+  .result-box {
+    text-align: center;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    width: 200px;
+  }
+  
+  .success-text {
+    margin-top: 20px;
+    color: green;
+    font-weight: bold;
+  }
+  
+  .error-text {
+    margin-top: 20px;
+    color: red;
+    font-weight: bold;
+  }
+  

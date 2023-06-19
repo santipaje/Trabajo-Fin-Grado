@@ -1,0 +1,29 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Login home page </title>
+    <link rel="stylesheet" href="loginhome.component.css">
+</head>
+
+<body>
+    <section>
+        <div class="imgBox">
+            <img src="/assets/resources/foto3.jpg">
+        </div>
+        <div class="contentBox">
+            <form class="loginhome-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+                <h2>SocialHub</h2>
+                <input name=username type="text" placeholder="Username" [(ngModel)]="userdata.username" required>
+                <input name=password type="password" placeholder="Password" [(ngModel)]="userdata.password" required>
+                <button type="submit">Submit</button>
+                <p class="link">Don't have an account? <a href="/register">Sign up</a></p>
+                <a class="link-forgot" href="/forgot-pwd">Forgot your password?</a>
+                <p class="error-message" *ngIf="existError" [innerHTML]="errorMessage"></p>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>

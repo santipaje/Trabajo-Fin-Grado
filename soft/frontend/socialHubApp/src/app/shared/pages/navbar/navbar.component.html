@@ -1,0 +1,68 @@
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <ul>
+        <li>
+          <a href="/home/feed">
+            <img src="/assets/resources/home.png" class="icon">
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="/home/search">
+            <img src="/assets/resources/search.png" class="icon">
+            <span>Search</span>
+          </a>
+        </li>
+        <li>
+          <a href="/home/hobbies">
+            <img src="/assets/resources/rubik.png" class="icon">
+            <span>Hobbies</span>
+          </a>
+        </li>
+        <li>
+          <a href="/home/liked">
+            <img src="/assets/resources/fire.png" class="icon">
+            <span>Liked</span>
+          </a>
+        </li>
+        <li>
+          <a href="/home/profile">
+            <img src="/assets/resources/user.png" class="icon">
+            <span>Profile</span>
+          </a>
+        </li>
+        <li>
+          <a (click)="openCreatePost()">
+            <img src="/assets/resources/upload.png" class="icon">
+            <span>Post Content</span>
+          </a>
+        </li>
+        <br><br>
+        <li>
+          <a (click)="logOut()">
+            <img src="/assets/resources/on-off-button.png" class="icon">
+            <span>Log out</span>
+          </a>
+        </li>
+      </ul>
+  </div>
+
+  <!-- Post content -->
+  <div id="upload" class="upload" *ngIf="isCreatePostOpen">
+    <div class="upload-content">
+      <span class="close" (click)="closeCreatePost()">&times;</span>
+      <h2>New post</h2>
+      <p>Anything to post?</p>
+      <div class="upload-text">
+        <label for="postText">Post header:</label>
+        <input type="text" id="postText" [(ngModel)]="newPostText">
+      </div>
+      <div class="upload-buttons">
+        <input type="file" id="imageInput" (change)="fileInput($event)" accept="image/*" style="display: none">
+        <label for="imageInput" class="orange-button">Select image</label>
+        <button class="orange-button" (click)="createPost()">Upload image</button>
+      </div>
+    </div>
+  </div>
+</body>

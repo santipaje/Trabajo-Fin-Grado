@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Page</title>
+    <link rel="stylesheet" type="text/css" href="search.component.css">
+</head>
+
+
+<!-- Estructura -->
+
+<body>
+    <div class="row">
+        <div class="col-sm-2">
+            <app-navbar />
+        </div>
+
+        <div class="col-sm-10">
+            <div class="search-content">
+                <h1 class="d-flex align-items-center justify-content-center">
+                    SocialHub
+                </h1>
+                <!-- Search content -->
+                <div class="search-input">
+                    <input type="text" [(ngModel)]="username" (keydown.enter)="search()" placeholder="Search...">
+                    <button (click)="search()">Search</button>
+                </div>
+
+                <!-- User Profile -->
+                <div class="d-flex align-items-center justify-content-center">
+                    <div class="user-profile" *ngIf="userFound">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="profile-picture">
+                                    <img [src]="getBase64Image(user.profilePic)" alt="Foto de perfil">
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="user-details">
+                                    <a class="username" (click)="showProfile()"><b>{{ user.username }}</b></a>
+                                    <div class="stats-container">
+                                        <p class="stat">Posts: {{ user.nposts }}</p>
+                                        <p class="stat">Followers: {{ user.nfollowers }}</p>
+                                        <p class="stat">Following: {{ user.nfollowing }}</p>
+                                    </div>
+                                    <button class="add-friend-button" *ngIf="isFollowable" (click)="follow()">Follow</button>
+                                    <button class="follow-request-sent" *ngIf="!isFollowable" [innerHTML]="status"></button>
+                                    <button class="add-friend-button" *ngIf="isFollowed" (click)="unfollow()">Unfollow</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Error Message -->
+                <div class="d-flex align-items-center justify-content-center">
+                    <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
